@@ -20,6 +20,7 @@ public class NomineesController {
 	@Autowired
 	NomineesService nomineesService;
 	
+	//GET mappings
 	@GetMapping("/")
 	public String greeting() { return "Welcome to Palme D'Or Movies. Enjoy our selection of the best movies.";}
 	
@@ -29,20 +30,39 @@ public class NomineesController {
 	return nomineesService.getAllMovies();  
 	}
 	
+	@GetMapping("/getmovieyear/{year}")  
+	private List<Nominees> getMovieByYear(@PathVariable("year") int year)   
+	{  
+	return nomineesService.getMoviesByYear(year);  
+	}
+	
+	@GetMapping("/getmoviegenre/{genre}")  
+	private List<Nominees> getMoviesByGenre(@PathVariable("genre") String genre)   
+	{  
+	return nomineesService.getMoviesByGenre(genre);  
+	}
+	
+	@GetMapping("/getmovieafteryear/{year}")  
+	private List<Nominees> getMoviesAfterYear(@PathVariable("year") int year)   
+	{  
+	return nomineesService.getMoviesAfterYear(year);  
+	}
+	
 	@GetMapping("/getmovie/{movieid}")  
-	private Nominees getBooks(@PathVariable("movieid") int movieid)   
+	private Nominees getMovieById(@PathVariable("movieid") int movieid)   
 	{  
 	return nomineesService.getMovieById(movieid);  
 	}
 	
-	
+	//POST mappings
 	@PostMapping("/createmovie")  
-	private int saveBook(@RequestBody Nominees movie)   
+	private int saveMovie(@RequestBody Nominees movie)   
 	{  
 		nomineesService.createOrUpdateMovie(movie);  
 	    return movie.getId();  
 	}
 	
+	//PUT mappings
 	@PutMapping("/updatemovie")  
 	private Nominees update(@RequestBody Nominees movie)   
 	{  
@@ -50,6 +70,14 @@ public class NomineesController {
 	    return movie;  
 	}
 	
+	@PutMapping("/updtitle/{title}&{id}")  
+	private void updateIsbn(@PathVariable("title") String title, @PathVariable("id") int id)   
+	{  
+		nomineesService.updateTitle(title, id);  
+
+	}
+	
+	//DELETE mappings
 	@DeleteMapping("/deletemovie/{movieid}")  
 	private void deleteMovie(@PathVariable("movieid") int movieid)   
 	{  
