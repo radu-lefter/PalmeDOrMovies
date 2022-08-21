@@ -2,16 +2,19 @@ package com.qaproject.palmedor.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name = "reviews")
 public class Reviews {
 	
 	@Id  
 	@Column  
-	private int reviewId;
+	private int reviewid;
 	@Column 
 	private String reviewer;
 	@Column 
@@ -19,12 +22,14 @@ public class Reviews {
 	@Column 
 	private int stars;
 	@Column 
-	private int movieId;
+	private int movieid;
+		
+	
 	public int getReviewId() {
-		return reviewId;
+		return reviewid;
 	}
 	public void setReviewId(int reviewId) {
-		this.reviewId = reviewId;
+		this.reviewid = reviewId;
 	}
 	public String getReviewer() {
 		return reviewer;
@@ -45,10 +50,10 @@ public class Reviews {
 		this.stars = stars;
 	}
 	public int getMovieId() {
-		return movieId;
+		return movieid;
 	}
 	public void setMovieId(int movieId) {
-		this.movieId = movieId;
+		this.movieid = movieId;
 	}
 	
 

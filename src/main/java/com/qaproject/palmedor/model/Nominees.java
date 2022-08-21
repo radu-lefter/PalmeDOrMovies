@@ -1,8 +1,11 @@
 package com.qaproject.palmedor.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,7 +18,7 @@ public class Nominees {
 	@Column 
 	private String title;
 	@Column 
-	private String originalTitle;
+	private String originaltitle;
 	@Column 
 	private int year;
 	@Column 
@@ -29,11 +32,17 @@ public class Nominees {
 	@Column 
 	private String wiki;
 	@Column 
-	private int runTimeMin;
+	private int runtimemin;
 	@Column 
 	private String genre;
 	@Column 
 	private boolean winner;
+	
+	@OneToMany(mappedBy = "movieid")
+	private List<Reviews> reviews;
+	
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -46,11 +55,11 @@ public class Nominees {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getOriginalTitle() {
-		return originalTitle;
+	public String getOriginaltitle() {
+		return originaltitle;
 	}
-	public void setOriginalTitle(String originalTitle) {
-		this.originalTitle = originalTitle;
+	public void setOriginaltitle(String originaltitle) {
+		this.originaltitle = originaltitle;
 	}
 	public int getYear() {
 		return year;
@@ -88,11 +97,11 @@ public class Nominees {
 	public void setWiki(String wiki) {
 		this.wiki = wiki;
 	}
-	public int getRunTimeMin() {
-		return runTimeMin;
+	public int getRuntimemin() {
+		return runtimemin;
 	}
-	public void setRunTimeMin(int runTimeMin) {
-		this.runTimeMin = runTimeMin;
+	public void setRuntimemin(int runtimemin) {
+		this.runtimemin = runtimemin;
 	}
 	public String getGenre() {
 		return genre;
@@ -106,6 +115,14 @@ public class Nominees {
 	public void setWinner(boolean winner) {
 		this.winner = winner;
 	}
+	public List<Reviews> getReviews() {
+		return reviews;
+	}
+	
+	public void setReviews(List<Reviews> reviews) {
+		this.reviews = reviews;
+	}
+	
 	
 	
 }
