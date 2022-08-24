@@ -4,9 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.qaproject.palmedor.exceptions.NomineesNotFoundByWinner;
 import com.qaproject.palmedor.model.Nominees;
 import com.qaproject.palmedor.service.NomineesService;
 
@@ -78,9 +78,17 @@ public class NomineesController {
 	return nomineesService.getMoviesAfterYear(year);  
 	}
 	
+	@GetMapping("/getmoviebywinners/{win}")  
+	private List<Nominees> getMoviesByWinners(@PathVariable("win") String win)   
+	{  
+	     if(win.equals("true") || win.equals("false")) {
+	    	 boolean winBool = Boolean.parseBoolean(win);
+		     return nomineesService.getMoviesByWinner(winBool);  
+		}else {
+			throw new NomineesNotFoundByWinner();
+		}
+	}
 	
-	
-	//POST mappings
 	@GetMapping(value ="/createmovieform", produces = MediaType.TEXT_HTML_VALUE)  
 	ModelAndView saveMovieApp()
 	{
@@ -89,6 +97,9 @@ public class NomineesController {
 	    //modelAndView.addObject("message", nomineesService.getAllMovies());
 	    return modelAndView;
 	}
+	
+	//POST mappings
+	
 	
 	@PostMapping("/createmovie")  
 	private int saveMovie(@RequestBody Nominees movie)   
@@ -103,9 +114,6 @@ public class NomineesController {
 		nomineesService.createOrUpdateMovie(nominee);  
 	    return "registration successful";  
 	}
-	
-	
-
 	
 	
 	//PUT mappings
