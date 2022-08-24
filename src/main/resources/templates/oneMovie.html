@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Movie</title>
+<link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2" >
+ 
+<h3 th:text="${message.title}"></h3>
+<p>Year: <span th:text="${message.year}"></span></p>
+<p>Director: <span th:text="${message.director}"></span></p>
+<p>Country:  <span th:text="${message.country}"></span></p>
+<p>Language: <span th:text="${message.language}"></span></p>
+<p>Plot: <span th:text="${message.plot}"></span></p>
+<p><a th:href="${message.wiki}" target="_blank">Wikipedia link</a></p>
+<p>Runtime: <span th:text="${message.runtimemin}"></span></p>
+<p>Genre: <span th:text="${message.genre}"></span></p>
+<p>Winner: <span th:text="${message.winner}"></span></p>
+
+
+
+</div>
+</body>
+</html>
