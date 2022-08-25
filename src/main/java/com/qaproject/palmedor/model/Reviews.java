@@ -17,6 +17,7 @@ import lombok.Setter;
 @Table(name = "reviews")
 public class Reviews {
 	
+	
 	@Id  
 	@Column  
 	private int reviewid;
@@ -28,7 +29,20 @@ public class Reviews {
 	private int stars;
 	@Column 
 	private int movieid;
-		
 	
+	
+	public Reviews() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+		
+//	public Reviews(int reviewid, String reviewer, String review, int stars, int movieid) {
+//		super();
+//		this.reviewid = reviewid;
+//		this.reviewer = reviewer;
+//		this.review = review;
+//		this.stars = stars;
+//		this.movieid = movieid;
+//	}
 
 }

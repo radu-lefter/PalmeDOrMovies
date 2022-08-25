@@ -80,9 +80,10 @@ public class NomineesService {
 	
 	
 	//create functions
-	public void createOrUpdateMovie(Nominees movie)   
+	public int createOrUpdateMovie(Nominees movie)   
 	{  
         nomineesRepository.save(movie);	
+        return 1;
 	}
 	
     //delete functions
