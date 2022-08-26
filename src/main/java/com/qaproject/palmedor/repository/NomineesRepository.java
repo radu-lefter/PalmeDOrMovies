@@ -22,6 +22,6 @@ public interface NomineesRepository extends CrudRepository<Nominees, Integer>{
 	@Modifying
 	@Transactional
 	@Query("UPDATE Nominees SET title = ?1  WHERE id = ?2")
-	void updTitle(String title, int id);
+	Nominees updTitle(String title, int id);
 
 }

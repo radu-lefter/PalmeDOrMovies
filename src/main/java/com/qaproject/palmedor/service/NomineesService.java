@@ -73,17 +73,17 @@ public class NomineesService {
 	}
 	
 	//update functions
-	public void updateTitle(String title, int id)   
+	public Nominees updateTitle(String title, int id)   
 	{  
-		nomineesRepository.updTitle(title, id);  
+		return nomineesRepository.updTitle(title, id);  
 	} 
 	
 	
 	//create functions
-	public int createOrUpdateMovie(Nominees movie)   
+	public Nominees createOrUpdateMovie(Nominees movie)   
 	{  
-        nomineesRepository.save(movie);	
-        return 1;
+        return nomineesRepository.save(movie);	
+        
 	}
 	
     //delete functions
