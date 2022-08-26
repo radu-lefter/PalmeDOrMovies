@@ -43,9 +43,15 @@ The project is stil in its first stages and needs to be enhanced. Contributions 
 
 ## Visual guide
 
-Postman requests:
-<img width="658" alt="image" src="https://user-images.githubusercontent.com/68811789/186955047-31cd5fe4-5500-41c9-91b4-2e83db28c9c4.png">
 
+<img width="658" alt="image" src="https://user-images.githubusercontent.com/68811789/186955047-31cd5fe4-5500-41c9-91b4-2e83db28c9c4.png">
+Postman requests
+
+<img width="783" alt="image" src="https://user-images.githubusercontent.com/68811789/186955390-a01f6c10-135f-4ca9-80b1-d4b2c412fa06.png">
+Data persisted locally
+
+<img width="815" alt="image" src="https://user-images.githubusercontent.com/68811789/186955661-b9b2a6e6-7775-42c4-9153-f94ee49d468a.png">
+Test coverage
 
 Jira board: https://palmedor.atlassian.net/jira/software/projects/PDM/boards/2
 
