@@ -31,7 +31,7 @@ I used a number of open source projects to create the project:
 
 ## Installation
 
-The API requires Spring Boot vs 2.7 and Java vs 18 to run. It can be executed from the command line with java -jar <palmedor.jar>.
+The API requires Spring Boot vs 2.7 and Java vs 18 to run. It can be executed from the command line with java -jar palmedor.jar.
 
 Install the dependencies and devDependencies and start the server.
 
@@ -52,6 +52,9 @@ Data persisted locally
 
 <img width="815" alt="image" src="https://user-images.githubusercontent.com/68811789/186955661-b9b2a6e6-7775-42c4-9153-f94ee49d468a.png">
 Test coverage
+
+<img width="436" alt="image" src="https://user-images.githubusercontent.com/68811789/186958356-408fbbd2-6874-401c-8068-b0d0744b6064.png">
+ERD
 
 Jira board: https://palmedor.atlassian.net/jira/software/projects/PDM/boards/2
 
