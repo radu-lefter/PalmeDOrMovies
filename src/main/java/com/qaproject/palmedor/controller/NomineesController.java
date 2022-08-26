@@ -29,8 +29,8 @@ public class NomineesController {
 	@GetMapping("/")
 	public String greeting() { return "Welcome to Palme D'Or Movies. Enjoy our selection of the best movies.";}
 	
-	@GetMapping(value = "/allmovies", produces = MediaType.APPLICATION_JSON_VALUE)  
-	private List<Nominees> getAllMovies()   
+	@GetMapping(value = "/allmovies", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Nominees> getAllMovies()   
 	{  
 	return nomineesService.getAllMovies();  
 	}

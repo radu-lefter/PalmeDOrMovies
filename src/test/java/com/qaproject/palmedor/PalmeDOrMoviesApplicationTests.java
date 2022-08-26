@@ -2,7 +2,11 @@ package com.qaproject.palmedor;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.request;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.ArrayList;
@@ -12,6 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.assertj.core.api.Assertions;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -20,6 +25,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
@@ -27,9 +33,13 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
-
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+
+import com.qaproject.palmedor.controller.NomineesController;
 import com.qaproject.palmedor.model.Nominees;
 import com.qaproject.palmedor.model.Reviews;
 import com.qaproject.palmedor.repository.NomineesRepository;
@@ -47,8 +57,13 @@ class PalmeDOrMoviesApplicationTests {
 
 	@Autowired
     private NomineesService nomineesService;
-    @MockBean
+	
+	@Autowired
+    private NomineesService nomineesServiceDTO;
+    
+	@MockBean
     private NomineesRepository nomineesRepo;
+	
     
     @Autowired
     private MockMvc mock;
@@ -59,8 +74,8 @@ class PalmeDOrMoviesApplicationTests {
     
 //    @Autowired
 //    private ModelMapper mapper;
-    
-//    @Autowired
+//    
+//   @Autowired
 //    private ObjectMapper obmapper;
     
     
@@ -246,8 +261,65 @@ class PalmeDOrMoviesApplicationTests {
     	  	
     }
     
+    //Test 10 - Test greeting path
+//    @Test
+//    public void testGreeting() throws Exception {
+//       mock.perform(get("/")
+//            .contentType("text/plain"))
+//            .andExpect(status().isOk());
+//            
+//    }
+    
+    
+  //Unit Test 10 - Get all movies DTO
+    @Test
+    public void testGetAllMoviesDTO() {
+    	
+    	final Nominees TEST_MOVIE = new Nominees(1000, "Test Title 4", "", 1975, "Test Director 1", "Germany", "German", "Test plot 4",
+	            "test link", 57, "drama", true, Arrays.asList(new Reviews()));
+    	
+    	List<Nominees> movies = new ArrayList<>();
+    	movies.add(TEST_MOVIE);
+    	
+    	// WHEN
+	    Mockito.when(this.nomineesRepo.findAll()).thenReturn(movies);
+	    // THEN
+	    Assertions.assertThat(this.nomineesServiceDTO.getAllMovies()).isEqualTo(movies);
+	    // verify that our repo was accessed exactly once
+	    Mockito.verify(this.nomineesRepo, Mockito.times(1)).findAll();
+	    
+	    System.out.println("Test for finding all Movies Successful");
+    	  	
+    }
+    
+  //Unit Test 11 - Delete movie by id in DTO
+    @Test
+    public void testDeleteMovieDTO() {
+    	
+    	
+    	int id = 1001;
+	    final Nominees TEST_MOVIE =  new Nominees(id, "Test Title 4", "", 1975, "Test Director 1", "Germany", "German", "Test plot 4",
+	            "test link", 57, "drama", true, Arrays.asList(new Reviews()));
+        
+	    nomineesServiceDTO.deleteMovie(TEST_MOVIE.getId());
+
+        Mockito.verify(nomineesRepo, Mockito.times(1))
+                .deleteById(TEST_MOVIE.getId());
+        
+        System.out.println("Test for Delete By ID Successful");
+        
+    }
+    
 
     
+    
+    
+   
+    
+    
+
+   
+
 
 	
 }
