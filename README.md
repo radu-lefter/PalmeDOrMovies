@@ -42,6 +42,9 @@ Want to contribute? Great!
 The project is stil in its first stages and needs to be enhanced. Contributions are welcome! More custom queries need to be added. The views for the app needs to be enhanced and the update and delete functionality for the fron-end need to be implemented. Tests need to be added to reach 100% coverage.  
 
 ## Visual guide
+Swagger\
+<img width="938" alt="image" src="https://user-images.githubusercontent.com/68811789/187079225-2ec147c3-30a4-45bf-acc8-1d71c5db538a.png">
+
 
 Postman requests\
 <img width="658" alt="image" src="https://user-images.githubusercontent.com/68811789/186955047-31cd5fe4-5500-41c9-91b4-2e83db28c9c4.png">
