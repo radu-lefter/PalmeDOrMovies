@@ -43,19 +43,19 @@ The project is stil in its first stages and needs to be enhanced. Contributions 
 
 ## Visual guide
 
-Postman requests
+Postman requests\
 <img width="658" alt="image" src="https://user-images.githubusercontent.com/68811789/186955047-31cd5fe4-5500-41c9-91b4-2e83db28c9c4.png">
 
 
-Data persisted locally
+Data persisted locally\
 <img width="783" alt="image" src="https://user-images.githubusercontent.com/68811789/186955390-a01f6c10-135f-4ca9-80b1-d4b2c412fa06.png">
 
 
-Test coverage
+Test coverage\
 <img width="864" alt="image" src="https://user-images.githubusercontent.com/68811789/187077446-4df211b0-9f3d-4d7e-afce-71eeaf840d0e.png">
 
 
-ERD
+ERD\
 <img width="436" alt="image" src="https://user-images.githubusercontent.com/68811789/186958356-408fbbd2-6874-401c-8068-b0d0744b6064.png">
 
 
