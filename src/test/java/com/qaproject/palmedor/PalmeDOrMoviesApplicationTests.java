@@ -260,15 +260,7 @@ class PalmeDOrMoviesApplicationTests {
 	   System.out.println("Test for updating only title from record");
     	  	
     }
-    
-    //Test 10 - Test greeting path
-//    @Test
-//    public void testGreeting() throws Exception {
-//       mock.perform(get("/")
-//            .contentType("text/plain"))
-//            .andExpect(status().isOk());
-//            
-//    }
+
     
     
   //Unit Test 10 - Get all movies DTO

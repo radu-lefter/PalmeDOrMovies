@@ -45,7 +45,7 @@ public class NomineesController {
 	}
 	
 	@GetMapping(value = "/getmovie/{movieid}", produces = MediaType.APPLICATION_JSON_VALUE)  
-	private Nominees getMovieById(@PathVariable("movieid") int movieid)   
+	public Nominees getMovieById(@PathVariable("movieid") int movieid)   
 	{  
 	return nomineesService.getMovieById(movieid);  
 	}
@@ -60,25 +60,25 @@ public class NomineesController {
 	
 	
 	@GetMapping("/getmovieyear/{year}")  
-	private List<Nominees> getMovieByYear(@PathVariable("year") int year)   
+	public List<Nominees> getMovieByYear(@PathVariable("year") int year)   
 	{  
 	return nomineesService.getMoviesByYear(year);  
 	}
 	
 	@GetMapping("/getmoviegenre/{genre}")  
-	private List<Nominees> getMoviesByGenre(@PathVariable("genre") String genre)   
+	public List<Nominees> getMoviesByGenre(@PathVariable("genre") String genre)   
 	{  
 	return nomineesService.getMoviesByGenre(genre);  
 	}
 	
 	@GetMapping("/getmovieafteryear/{year}")  
-	private List<Nominees> getMoviesAfterYear(@PathVariable("year") int year)   
+	public List<Nominees> getMoviesAfterYear(@PathVariable("year") int year)   
 	{  
 	return nomineesService.getMoviesAfterYear(year);  
 	}
 	
 	@GetMapping("/getmoviebywinners/{win}")  
-	private List<Nominees> getMoviesByWinners(@PathVariable("win") String win)   
+	public List<Nominees> getMoviesByWinners(@PathVariable("win") String win)   
 	{  
 	     if(win.equals("true") || win.equals("false")) {
 	    	 boolean winBool = Boolean.parseBoolean(win);
@@ -101,14 +101,14 @@ public class NomineesController {
 	
 	
 	@PostMapping("/createmovie")  
-	private int saveMovie(@RequestBody Nominees movie)   
+	public Nominees saveMovie(@RequestBody Nominees movie)   
 	{  
 		nomineesService.createOrUpdateMovie(movie);  
-	    return movie.getId();  
+	    return movie; 
 	}
 	
 	@PostMapping("/createmovieapp")  
-	private String saveMovieApp(Model model, @ModelAttribute("nominee") Nominees nominee)   
+	private String saveMovieAppSuccess(Model model, @ModelAttribute("nominee") Nominees nominee)   
 	{  
 		nomineesService.createOrUpdateMovie(nominee);  
 	    return "registration successful";  
@@ -117,24 +117,25 @@ public class NomineesController {
 	
 	//PUT mappings
 	@PutMapping("/updatemovie")  
-	private Nominees update(@RequestBody Nominees movie)   
+	public Nominees update(@RequestBody Nominees movie)   
 	{  
 		nomineesService.createOrUpdateMovie(movie);  
 	    return movie;  
 	}
 	
 	@PutMapping("/updtitle/{title}&{id}")  
-	private void updateIsbn(@PathVariable("title") String title, @PathVariable("id") int id)   
+	public Nominees updateTitle(@PathVariable("title") String title, @PathVariable("id") int id)   
 	{  
-		nomineesService.updateTitle(title, id);  
+		return nomineesService.updateTitle(title, id);  
 
 	}
 	
 	//DELETE mappings
 	@DeleteMapping("/deletemovie/{movieid}")  
-	private void deleteMovie(@PathVariable("movieid") int movieid)   
+	public int deleteMovie(@PathVariable("movieid") int movieid)   
 	{  
-		nomineesService.deleteMovie(movieid);  
+		nomineesService.deleteMovie(movieid); 
+		return 0;
 	}
 
 }
