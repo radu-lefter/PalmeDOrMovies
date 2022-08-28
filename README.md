@@ -1,5 +1,5 @@
 # Palme D'Or Nominees REST API
-## A Java Bootcamp final Project
+## A Java Bootcamp final project
 
 This project is the result of the final challenge from the QA DFE Bootcamp. The challenge was to create a REST API that can handle HTTP requests and that demonstrates CRUD functionality. The project was also built following Agile and MoSCoW practices. 
 
@@ -33,7 +33,7 @@ I used a number of open source projects to create the project:
 
 The API requires Spring Boot vs 2.7 and Java vs 18 to run. It can be executed from the command line with java -jar palmedor.jar.
 
-Install the dependencies and devDependencies and start the server.
+Install the dependencies and start the server.
 
 ## Development
 
