@@ -10,6 +10,7 @@ pleasant visualisation, for example "/allmoviesapp".
 
 - Get a list of all the nominees : http://localhost:8080/allmovies
 - Get a list of all the nominees with frontend: http://localhost:8080/allmoviesapp
+- Get a nominees by id: http://localhost:8080/getmovie/{movieid}
 - Add a nominee : http://localhost:8080/createmovie
 - Add a nominee from frontend: http://localhost:8080/createmovieform
 - Update a nominee:  http://localhost:8080/updatemovie
