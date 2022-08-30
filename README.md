@@ -37,9 +37,9 @@ I used a number of open source projects to create the project:
 
 ## Installation
 
-The API requires Spring Boot vs 2.7 and Java vs 18 to run. It can be executed from the command line with java -jar palmedor.jar.
-
-Install the dependencies and start the server.
+The API requires Spring Boot vs 2.7 and Java vs 18 to run. The jar file is called palmedor and it can be found in the main or the target folder.
+It can be executed from the command line with java -jar palmedor.jar.
+It will automatically install the dependencies and start the server.
 
 ## Development
 
