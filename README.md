@@ -2,6 +2,8 @@
 ## A Java Bootcamp final project
 
 This project is the result of the final challenge from the QA DFE Bootcamp. The challenge was to create a REST API that can handle HTTP requests and that demonstrates CRUD functionality. The project was also built following Agile and MoSCoW practices. 
+Although this is a REST API, a simple fron-end was built into it using Thymeleaf templates. Access routes adding "app" at the end of the route to get a more
+pleasant visualisation, for example "/allmoviesapp".
 
 
 ## Features
@@ -48,6 +50,10 @@ Swagger\
 
 Postman requests\
 <img width="658" alt="image" src="https://user-images.githubusercontent.com/68811789/186955047-31cd5fe4-5500-41c9-91b4-2e83db28c9c4.png">
+
+Frontend\
+<img width="940" alt="image" src="https://user-images.githubusercontent.com/68811789/187404083-75bc3b74-9c18-4107-8380-2be1519f6e5e.png">
+
 
 
 Data persisted locally\
