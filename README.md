@@ -8,12 +8,16 @@ pleasant visualisation, for example "/allmoviesapp".
 
 ## Features
 
-- Get a list of all the nominees 
-- Add or update a nominee
-- Delete a nominee
-- Get winners or runner ups
-- Get nominees for a certain year or above
-- See the nominees as a json list or displayed in a front-end
+- Get a list of all the nominees : http://localhost:8080/allmovies
+- Get a list of all the nominees with frontend: http://localhost:8080/allmoviesapp
+- Add a nominee : http://localhost:8080/createmovie
+- Add a nominee from frontend: http://localhost:8080/createmovieform
+- Update a nominee:  http://localhost:8080/updatemovie
+- Delete a nominee: http://localhost:8080/deletemovie/{movieid}
+- Get winners or runner ups: http://localhost:8080/getmoviebywinners/{win}
+- Get nominees for a certain year: http://localhost:8080/getmovieyear/{year}
+- Get nominees after a certain year: http://localhost:8080/getmovieafteryear/{year}
+
 
 
 ## Tech
